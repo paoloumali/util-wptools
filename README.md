@@ -29,10 +29,11 @@ Utility for wordpress giving the following
         volumes:
         - ./_util/wptools/sbin:/usr/local/sbin
         - ./_util/wptools/wp.gitignore:/tmp/.gitignore
-        - ./laravel/public/blog:/tmp/wordpress
-        - ./.tmp/backups:/tmp/backups
+        - ./_util/wptools/backups:/tmp/backups
+        - huenits-lara:${APP_DIR}
         command: sh -c "tail -f /dev/null"
         environment:
-        PAGER: 'busybox more'
-        WP_CLI_ALLOW_ROOT: 1
+        - PAGER='busybox more'
+        - WP_CLI_ALLOW_ROOT=1
+        - WP_DIR=${WP_DIR:-/var/www/laravel/blog}
     ```

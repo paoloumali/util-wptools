@@ -1,0 +1,4 @@
+*.zip
+*.sql
+!.gitignore
+wp-archive_latest

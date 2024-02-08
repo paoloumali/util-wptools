@@ -6,4 +6,4 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql && \
 RUN apk update && apk add mysql-client mariadb-connector-c-dev \
   zip bash git
 
-WORKDIR /tmp/wordpress
+WORKDIR /tmp

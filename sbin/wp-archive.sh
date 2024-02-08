@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#wpdir=/tmp/wordpress
+ln -nsf $WP_DIR /tmp/wordpress
 wpdir=/tmp/wordpress
 baksdir=/tmp/backups
 

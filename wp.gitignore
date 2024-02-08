@@ -1,0 +1,10 @@
+wordpress/wp-content/*
+!wordpress/wp-content/themes
+!wordpress/wp-content/plugins
+!wordpress/wp-content/mu-plugins
+backups/
+
+# make sure your big files are in wp-content/
+# so they are part of the archive
+.sql
+.zip

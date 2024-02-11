@@ -30,7 +30,7 @@ Utility for wordpress giving the following
         - ./_util/wptools/sbin:/usr/local/sbin
         - ./_util/wptools/wp.gitignore:/tmp/.gitignore
         - ./_util/wptools/backups:/tmp/backups
-        - huenits-lara:${APP_DIR}
+        - huenits-lara:${LARA_DIR}
         command: sh -c "tail -f /dev/null"
         environment:
         - PAGER='busybox more'

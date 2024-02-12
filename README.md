@@ -27,8 +27,8 @@ Utility for wordpress giving the following
     depends_on: [wordpress, mysql]
     volumes:
       - ./.dev/wptools/sbin:/usr/local/sbin
-      - ${VOL_PREFIX}-wp_backups:/tmp/backups
-      - ${VOL_PREFIX}-wordpress:/tmp/wordpress
+      - ${NICK}-wp_backups:/tmp/backups
+      - ${NICK}-wordpress:/tmp/wordpress
       - ./.dev/wptools/wp.gitignore:/tmp/.gitignore
     command: sh -c "tail -f /dev/null"
     environment:

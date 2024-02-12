@@ -21,19 +21,17 @@ Utility for wordpress giving the following
 
 - See sample usage below:
 
-    ```yml
-    wptools:
-        build: ./_util/wptools
-        depends_on: [fpm, mysql]
-        networks: [net1]
-        volumes:
-        - ./_util/wptools/sbin:/usr/local/sbin
-        - ./_util/wptools/wp.gitignore:/tmp/.gitignore
-        - ./_util/wptools/backups:/tmp/backups
-        - huenits-lara:${LARA_DIR}
-        command: sh -c "tail -f /dev/null"
-        environment:
-        - PAGER='busybox more'
-        - WP_CLI_ALLOW_ROOT=1
-        - WP_DIR=${WP_DIR:-/var/www/laravel/blog}
-    ```
+```yml
+  wptools:
+    build: .dev/wptools
+    depends_on: [wordpress, mysql]
+    volumes:
+      - ./.dev/wptools/sbin:/usr/local/sbin
+      - ${VOL_PREFIX}-wp_backups:/tmp/backups
+      - ${VOL_PREFIX}-wordpress:/tmp/wordpress
+      - ./.dev/wptools/wp.gitignore:/tmp/.gitignore
+    command: sh -c "tail -f /dev/null"
+    environment:
+      - PAGER='busybox more'
+      - WP_CLI_ALLOW_ROOT=1
+```

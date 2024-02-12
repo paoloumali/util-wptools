@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-#wpdir=/tmp/wordpress
-ln -nsf $WP_DIR /tmp/wordpress
-wpdir=/tmp/wordpress
+wptmp=/tmp/wordpress
 baksdir=/tmp/backups
 
 timestamp=$(date +%s)
@@ -19,13 +17,13 @@ git add -A
 git commit -m "time: $timename"
 git checkout -b $htime
 
-cd $wpdir
+cd $wptmp
 ## db export
 wp db export --allow-root db_$timename.sql
 
 ## archive it
 zip -r $baksdir/wp-archive_latest.zip \
-  $wpdir/{.htaccess,wp-config.php,wp-content} \
+  $wptmp/{.htaccess,wp-config.php,wp-content} \
   *.sql \
   /tmp/.git
 

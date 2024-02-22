@@ -1,4 +1,4 @@
-FROM php:8.1-alpine
+FROM php:8.2-fpm-alpine
 
 ENV PAGER='busybox more'
 ENV WP_CLI_ALLOW_ROOT=1
@@ -12,4 +12,6 @@ RUN apk update && apk add mysql-client mariadb-connector-c-dev \
 COPY sbin         /usr/local/sbin
 COPY wp.gitignore /tmp/.gitignore
 
-WORKDIR /tmp
+VOLUME /tmp/wordpress
+
+WORKDIR /tmp/wordpress
